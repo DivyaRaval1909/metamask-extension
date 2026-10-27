@@ -62,6 +62,7 @@ import {
 } from '../../shared/lib/passkey';
 import { getIsPasskeyFeatureEnabled } from '../../shared/lib/environment';
 import { isFirefoxBrowser } from '../../shared/lib/browser-runtime.utils';
+import { isManifestV3 } from '../../shared/lib/mv3.utils';
 import { getRemoteFeatureFlags } from '../../shared/lib/selectors/remote-feature-flags';
 // TODO: Fix circular dependency
 // To avoid import evaluating as `undefined` due to circular dependency,
@@ -1556,6 +1557,7 @@ export function selectShowTickerWidget(state) {
 export function selectIsTickerWidgetFeatureEnabled(state) {
   const remoteFeatureFlags = getRemoteFeatureFlags(state);
   return (
+    isManifestV3 &&
     state.metamask.useExternalServices !== false &&
     getBooleanFeatureFlag(remoteFeatureFlags?.cashtagInjection, false)
   );
