@@ -131,10 +131,7 @@ export const MarketingMoment = ({
             alignItems={BoxAlignItems.Center}
             justifyContent={BoxJustifyContent.Center}
             {...artworkBoxProps}
-            className={twMerge(
-              'w-full flex-1 overflow-hidden',
-              artworkClassName,
-            )}
+            className={twMerge('w-full grow shrink-0', artworkClassName)}
           >
             {artwork}
           </Box>
